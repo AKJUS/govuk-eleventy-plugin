@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import process from 'node:process'
 
 /**
  * Get file contents
@@ -8,7 +9,7 @@ import path from 'node:path'
  * @returns {Promise<string>} File contents
  */
 export async function getFileContents(filePath) {
-  filePath = path.join(import.meta.dirname, '..', filePath)
+  filePath = path.join(process.cwd(), filePath)
 
   return await fs.readFile(filePath, { encoding: 'utf8' })
 }
