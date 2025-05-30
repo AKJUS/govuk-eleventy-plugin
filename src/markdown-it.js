@@ -42,7 +42,6 @@ export function md(options = {}) {
     .use(markdownItAnchor, {
       permalink: options.headingPermalinks
         ? markdownItAnchor.permalink.headerLink({
-            class: 'app-link--heading',
             safariReaderFix: true
           })
         : false,
