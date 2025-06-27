@@ -25,7 +25,7 @@ The `permalink` value is the location of the generated file.
 
 ## Create a sitemap
 
-The search feature only works if JavaScript is available, but falls back to a link to a sitemap.
+The search feature works when JavaScript is available, falling back to a link to a sitemap.
 
 Create the search index by creating a page that uses the `sitemap` layout:
 
@@ -37,7 +37,7 @@ permalink: /sitemap
 ---
 ```
 
-You can see an [example of a sitemap](../sitemap) on this website.
+> View an <a href="/example/sitemap" target="_blank">example sitemap (opens in a new tab)</a>
 
 ## Add a search input to the site header
 

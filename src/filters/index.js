@@ -1,5 +1,5 @@
 export { canonicalUrl } from './canonical-url.js'
-export { date } from './date.js'
+export { govukDate, isoDate } from './date.js'
 export {
   dateToRfc3339,
   getNewestCollectionItemDate
@@ -7,7 +7,6 @@ export {
 export { currentPage } from './current-page.js'
 export { includes } from './includes.js'
 export { sliceFromCollection } from './slice-from-collection.js'
-export { itemsFromCollection } from './items-from-collection.js'
 export { itemsFromNavigation } from './items-from-navigation.js'
 export { itemsFromPagination } from './items-from-pagination.js'
 export { markdown } from './markdown.js'

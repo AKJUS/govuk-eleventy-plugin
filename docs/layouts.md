@@ -2,7 +2,7 @@
 layout: sub-navigation
 order: 4
 title: Layouts
-description: Choose a layout to match the type of content you want to write.
+description: Choose a layout to match the content you want to write.
 ---
 
 {% for page in collections.layout %}
@@ -43,6 +43,11 @@ Layouts can accept the following [front matter data](https://www.11ty.dev/docs/d
       { text: "title" },
       { text: "string" },
       { text: "Page title." }
+    ],
+    [
+      { text: "theme" },
+      { text: "string" },
+      { text: "Common title page sits under in sub navigation." | markdown }
     ],
     [
       { text: "description" },
@@ -157,7 +162,7 @@ Layouts can accept the following [front matter data](https://www.11ty.dev/docs/d
 
 ## Overriding layouts
 
-Layouts provided by this plugin can be completely overridden, or used as a basis for your own, by using Nunjuck’s [template inheritance](https://mozilla.github.io/nunjucks/templating.html#template-inheritance) feature.
+Layouts provided by this plugin can be overridden, or used as a basis for your own, by using Nunjuck’s [template inheritance](https://mozilla.github.io/nunjucks/templating.html#template-inheritance) feature.
 
 For example, to show a notification banner at the top of each page that uses the Page layout, add a file named `_includes/page.njk` with the following content:
 
@@ -172,8 +177,8 @@ For example, to show a notification banner at the top of each page that uses the
 {% block content %}
   {# Templates can include front matter data #}
   {{ govukNotificationBanner({
-    text: "This page was last reviewed on " + (reviewed | date("d LLLL y")) + ".
-    It needs to be reviewed again on " + (reviewAgain | date("d LLLL y")) + "."
+    text: "This page was last reviewed on " + (reviewed | govukDate) + ".
+    It needs to be reviewed again on " + (reviewAgain | govukDate) + "."
   }) if reviewed and reviewAgain }}
 
   {{ appDocumentHeader({
@@ -185,7 +190,7 @@ For example, to show a notification banner at the top of each page that uses the
 {% endblock %}{% endraw %}
 ```
 
-The following layouts can be extended:
+You can extend the following layouts:
 
 {%- for layoutName in layoutNames %}
 
@@ -194,6 +199,6 @@ The following layouts can be extended:
 {%- endfor %}
 {##}
 
-Replacement layouts must share the same name, and must be saved in your [configured layout directory](https://www.11ty.dev/docs/config/#directory-for-layouts-optional).
+Replacement layouts must share the same name and saved in your [configured layout directory](https://www.11ty.dev/docs/config/#directory-for-layouts-optional).
 
 Learn more about [layouts on the Eleventy website](https://www.11ty.dev/docs/layouts/).
