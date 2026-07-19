@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title: Upgrading
 description: Guides for upgrading to major releases with breaking changes.
 ---
